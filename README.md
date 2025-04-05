@@ -1,73 +1,89 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { RocketIcon, CodeIcon, BotIcon } from "lucide-react";
+import { RocketIcon, CodeIcon, BotIcon, MailIcon, MapPinIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-tr from-indigo-900 via-black to-purple-900 text-white px-6 py-12 flex flex-col items-center justify-center font-sans">
-      <motion.h1
+    <main className="min-h-screen bg-gradient-to-tr from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-white px-6 py-12 flex flex-col items-center justify-start font-sans">
+      <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-6xl font-extrabold tracking-tight mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300"
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
       >
-        AguyanAI
-      </motion.h1>
+        <h1 className="text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+          AguyanAI
+        </h1>
+        <p className="mt-6 text-2xl text-gray-100 max-w-3xl mx-auto">
+          Agentic AI platform designed to power integration through intelligent agents and robust APIs.
+        </p>
+        <Button size="lg" className="mt-8 px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white rounded-xl shadow-md">
+          <RocketIcon className="mr-2" /> Launch Platform
+        </Button>
+      </motion.header>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="text-xl text-gray-300 max-w-2xl text-center mb-12"
-      >
-        The future of autonomous integration. AguyanAI empowers developers with agentic intelligence and seamless API connectivity.
-      </motion.p>
-
-      <motion.div
+      <motion.section
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8"
+        className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10"
       >
-        <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl shadow-lg">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <BotIcon className="text-purple-400" />
-              <h2 className="text-2xl font-bold">Agentic Framework</h2>
+        <Card className="bg-[#1b1b3a] border border-[#2d2d5a] rounded-2xl shadow-xl">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-4 mb-6">
+              <BotIcon className="text-blue-400 w-7 h-7" />
+              <h2 className="text-3xl font-semibold text-white">Agentic Intelligence</h2>
             </div>
-            <p className="text-gray-400 mb-6">
-              Create intelligent, self-operating agents that adapt, learn, and evolve in dynamic environments.
+            <p className="text-gray-300 mb-6 text-lg">
+              Architect, deploy, and scale AI agents that think, plan, and act with minimal human input.
             </p>
-            <Button variant="outline">Learn More</Button>
+            <Button variant="outline">Explore Agents</Button>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl shadow-lg">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <CodeIcon className="text-indigo-400" />
-              <h2 className="text-2xl font-bold">API Integrations</h2>
+        <Card className="bg-[#1b1b3a] border border-[#2d2d5a] rounded-2xl shadow-xl">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-4 mb-6">
+              <CodeIcon className="text-indigo-400 w-7 h-7" />
+              <h2 className="text-3xl font-semibold text-white">Developer APIs</h2>
             </div>
-            <p className="text-gray-400 mb-6">
-              Leverage robust APIs to connect AguyanAI with your apps, services, and data pipelines effortlessly.
+            <p className="text-gray-300 mb-6 text-lg">
+              Powerful APIs to connect AguyanAI with your ecosystem: secure, scalable, and lightning fast.
             </p>
-            <Button variant="outline">View Docs</Button>
+            <Button variant="outline">API Reference</Button>
           </CardContent>
         </Card>
-      </motion.div>
+      </motion.section>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        className="mt-20 text-center text-gray-300 text-base"
+      >
+        <h3 className="text-2xl font-bold text-white mb-4">Contact Us</h3>
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex items-center gap-2">
+            <MailIcon className="w-5 h-5 text-blue-400" />
+            <span>contact@aguyanai.com</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPinIcon className="w-5 h-5 text-indigo-400" />
+            <span>123 AI Avenue, Tech City, NY 10001</span>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.footer
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.6 }}
-        className="mt-16"
+        className="mt-16 text-center text-gray-400 text-sm"
       >
-        <Button size="lg" className="text-lg px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-2xl shadow-xl">
-          <RocketIcon className="mr-2" /> Get Started
-        </Button>
-      </motion.div>
+        © {new Date().getFullYear()} AguyanAI. All rights reserved.
+      </motion.footer>
     </main>
   );
 }
