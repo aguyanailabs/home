@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { RocketIcon, CodeIcon, BotIcon, MailIcon, MapPinIcon } from "lucide-react";
+import { RocketIcon, CodeIcon, BotIcon, MailIcon, MapPinIcon, ShieldIcon, BarChart3Icon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function LandingPage() {
@@ -28,46 +28,49 @@ export default function LandingPage() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10"
+        className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
       >
-        <Card className="bg-[#1b1b3a] border border-[#2d2d5a] rounded-2xl shadow-xl">
-          <CardContent className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <BotIcon className="text-blue-400 w-7 h-7" />
-              <h2 className="text-3xl font-semibold text-white">Agentic Intelligence</h2>
-            </div>
-            <p className="text-gray-300 mb-6 text-lg">
-              Architect, deploy, and scale AI agents that think, plan, and act with minimal human input.
-            </p>
-            <Button variant="outline">Explore Agents</Button>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-[#1b1b3a] border border-[#2d2d5a] rounded-2xl shadow-xl">
-          <CardContent className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <CodeIcon className="text-indigo-400 w-7 h-7" />
-              <h2 className="text-3xl font-semibold text-white">Developer APIs</h2>
-            </div>
-            <p className="text-gray-300 mb-6 text-lg">
-              Powerful APIs to connect AguyanAI with your ecosystem: secure, scalable, and lightning fast.
-            </p>
-            <Button variant="outline">API Reference</Button>
-          </CardContent>
-        </Card>
+        {[{
+          icon: <BotIcon className="text-blue-400 w-7 h-7" />, title: "Agentic Intelligence", desc: "Architect, deploy, and scale AI agents that think, plan, and act with minimal human input.", button: "Explore Agents"
+        }, {
+          icon: <CodeIcon className="text-indigo-400 w-7 h-7" />, title: "Automated API Integrations", desc: "Seamlessly integrate your systems with our intelligent APIs that adapt and automate workflows effortlessly.", button: "Integration Guide"
+        }, {
+          icon: <ShieldIcon className="text-green-400 w-7 h-7" />, title: "Security & Governance", desc: "Built-in security features ensure data protection, compliance, and safe AI operations.", button: "Learn Security"
+        }, {
+          icon: <BarChart3Icon className="text-yellow-400 w-7 h-7" />, title: "Insights & Monitoring", desc: "Real-time analytics and monitoring for your agents' behavior and performance.", button: "View Dashboard"
+        }].map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 + i * 0.2, duration: 0.5 }}
+          >
+            <Card className="bg-[#1b1b3a] border border-[#2d2d5a] rounded-2xl shadow-xl h-full">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  {item.icon}
+                  <h2 className="text-3xl font-semibold text-white">{item.title}</h2>
+                </div>
+                <p className="text-gray-300 mb-6 text-lg">{item.desc}</p>
+                <Button variant="outline">{item.button}</Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
       </motion.section>
 
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.6 }}
-        className="mt-20 text-center text-gray-300 text-base"
+        className="mt-24 text-center text-gray-300 text-base"
       >
         <h3 className="text-2xl font-bold text-white mb-4">Contact Us</h3>
         <div className="flex flex-col items-center gap-2">
           <div className="flex items-center gap-2">
             <MailIcon className="w-5 h-5 text-blue-400" />
-            <span>contact@aguyanai.com</span>
+            <span>aguyan.ai.labs@gmail.com</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPinIcon className="w-5 h-5 text-indigo-400" />
